@@ -13,7 +13,7 @@ if [[ -f .env ]]; then
 fi
 
 FRONTEND_PORT="${FRONTEND_PORT:-3000}"
-BACKEND_PORT="${BACKEND_PORT:-5000}"
+BACKEND_PORT="${BACKEND_PORT:-8000}"
 SAMPLE_FILE="${1:-sample_logs/sample_proxy_log.txt}"
 
 if [[ ! -f "$SAMPLE_FILE" ]]; then

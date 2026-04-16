@@ -112,7 +112,7 @@ Three services start in dependency order: `postgres` → `backend` → `frontend
 **3. Open the app**
 
 - UI: `http://localhost:3000`
-- API: `http://localhost:5000`
+- API: `http://localhost:8000`
 
 **Demo credentials:** `demo` / `demo1234`
 

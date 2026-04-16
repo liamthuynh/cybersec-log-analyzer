@@ -9,7 +9,7 @@ RUN npm ci
 FROM node:20-alpine AS builder
 WORKDIR /app
 
-ARG BACKEND_INTERNAL_URL=http://localhost:5000
+ARG BACKEND_INTERNAL_URL=http://localhost:8000
 ENV BACKEND_INTERNAL_URL=$BACKEND_INTERNAL_URL
 
 COPY --from=deps /app/node_modules ./node_modules

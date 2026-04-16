@@ -9,6 +9,6 @@ COPY . .
 
 RUN mkdir -p uploads sample_logs
 
-EXPOSE 5000
+EXPOSE 8000
 
 CMD ["python", "app.py"]
