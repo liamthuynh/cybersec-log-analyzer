@@ -193,14 +193,6 @@ npm run dev
 
 Open `http://localhost:3000`.
 
-**Smoke test**
-
-Once the stack is running, validate the main flow end-to-end:
-
-```bash
-./scripts/smoke_test.sh
-```
-
 ---
 
 ## Log Format
