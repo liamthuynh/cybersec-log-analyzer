@@ -239,7 +239,7 @@ Each anomaly includes:
 | `severity` | `critical` / `high` / `medium` / `low` |
 | `entry` | The raw log fields for the flagged line |
 
-Rules apply to the full upload in a single pass and are deduplicated by line number — a line that triggers multiple rules produces one merged anomaly.
+Each rule makes its own pass over the entries. Results are then deduplicated by line number — a line that triggers multiple rules produces one merged anomaly with the highest severity and confidence of the group.
 
 ---
 
@@ -262,7 +262,7 @@ When `ANTHROPIC_API_KEY` is set and the AI toggle is on, the backend:
 | `patterns_detected` | Short list of behavioral patterns identified |
 | `recommended_actions` | Prioritized response actions for the analyst |
 
-If no API key is configured, the backend returns a rule-based fallback summary so the panel is never blank.
+If no API key is configured, the backend returns a rule-based fallback that populates the executive summary, threat level, key findings, and recommended actions. The timeline and patterns sections require a live API key and will not appear in fallback mode.
 
 ---
 
