@@ -29,8 +29,9 @@ CyberScope lets security analysts upload proxy or web server logs, automatically
 
 - [Features](#features)
 - [Architecture](#architecture)
+- [Configuration](#configuration)
 - [Quick Start — Docker](#quick-start--docker)
-- [Quick Start — Local](#quick-start--local)
+- [Quick Start — Local](#quick-start--local-tested-on-macos)
 - [Log Format](#log-format)
 - [Anomaly Detection](#anomaly-detection)
 - [AI Analysis](#ai-analysis)
@@ -82,6 +83,20 @@ Browser
 
 ---
 
+## Configuration
+
+Both setup paths require the same two environment variables:
+
+| Variable | Required | Description |
+|---|---|---|
+| `SECRET_KEY` | Yes | Signs JWT tokens. Generate one: `python3 -c "import secrets; print(secrets.token_hex(32))"` |
+| `ANTHROPIC_API_KEY` | No | Enables AI analysis. Get one at [console.anthropic.com](https://console.anthropic.com) |
+
+**Docker** reads these from a `.env` file in the project root.  
+**Local** reads them from shell exports (see [Quick Start — Local](#quick-start--local-tested-on-macos)).
+
+---
+
 ## Quick Start — Docker
 
 The fastest path. Requires Docker Desktop.
@@ -94,12 +109,7 @@ cd cybersec-log-analyzer
 cp .env.example .env
 ```
 
-Open `.env` and set the two values below. Everything else has working defaults.
-
-| Variable | Required | Description |
-|---|---|---|
-| `SECRET_KEY` | Yes | Signs JWT tokens. Generate one: `python3 -c "import secrets; print(secrets.token_hex(32))"` |
-| `ANTHROPIC_API_KEY` | No | Enables AI analysis. Get one at [console.anthropic.com](https://console.anthropic.com) |
+Open `.env` and fill in the variables from the [Configuration](#configuration) section above.
 
 **2. Start the stack**
 
