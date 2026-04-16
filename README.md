@@ -128,7 +128,7 @@ Drag it into the upload zone to see anomaly detection and (if you set an API key
 
 ---
 
-## Quick Start — Local
+## Quick Start — Local (Tested on macOS)
 
 Requires Python 3.11+, Node.js 20+, and PostgreSQL 15+.
 

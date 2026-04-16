@@ -132,7 +132,7 @@ def init_db():
             )
 
             # Create a default demo user for easy testing.
-            demo_hash = generate_password_hash("demo1234")
+            demo_hash = generate_password_hash("demo1234", method="pbkdf2:sha256")
             cur.execute(
                 """
                 INSERT INTO users (id, username, password_hash, created_at)
@@ -200,7 +200,7 @@ def register():
     user_id = str(uuid.uuid4())
     db.execute(
         "INSERT INTO users (id, username, password_hash, created_at) VALUES (%s, %s, %s, %s)",
-        (user_id, username, generate_password_hash(password), datetime.utcnow().isoformat()),
+        (user_id, username, generate_password_hash(password, method="pbkdf2:sha256"), datetime.utcnow().isoformat()),
     )
     db.commit()
 
