@@ -97,19 +97,13 @@ Both setup paths require the same two environment variables:
 
 ### Generating a SECRET_KEY
 
-`SECRET_KEY` can be any random 32-character hex string. Generate it **once**, copy the value, and keep it fixed — changing it invalidates all existing login tokens.
+`SECRET_KEY` can be any random 32-character hex string. Generate it, copy the value, and keep it fixed — changing it invalidates all existing login tokens.
 
-**Option A — generate locally (Python):**
+You can use any online random hex generator, or if you prefer to do it locally:
+
 ```bash
 python3 -c "import secrets; print(secrets.token_hex(32))"
 ```
-
-**Option B — generate locally (OpenSSL):**
-```bash
-openssl rand -hex 32
-```
-
-You can also use any online random hex generator if you prefer.
 
 ---
 
