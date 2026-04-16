@@ -1,0 +1,73 @@
+# Web Proxy Log - Sample File for Testing
+# Format: timestamp | source_ip | user | method | url | status_code | bytes_sent | bytes_received | action | category | user_agent | duration_ms
+# Generated for cybersecurity log analyzer testing
+2025-01-15T08:02:12Z | 10.0.1.42 | jsmith | GET | https://mail.google.com/inbox | 200 | 512 | 34521 | ALLOW | Webmail | Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120.0 | 234
+2025-01-15T08:03:45Z | 10.0.1.42 | jsmith | GET | https://docs.google.com/document/d/abc123 | 200 | 478 | 28934 | ALLOW | Cloud Storage | Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120.0 | 189
+2025-01-15T08:05:01Z | 10.0.1.55 | ajones | GET | https://outlook.office365.com/mail | 200 | 634 | 41023 | ALLOW | Webmail | Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/17.2 | 312
+2025-01-15T08:05:33Z | 10.0.1.55 | ajones | GET | https://teams.microsoft.com/chat | 200 | 412 | 19843 | ALLOW | Collaboration | Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/17.2 | 156
+2025-01-15T08:10:22Z | 10.0.1.78 | bwilson | GET | https://github.com/company/internal-repo | 200 | 389 | 52341 | ALLOW | Developer Tools | Mozilla/5.0 (X11; Linux x86_64) Firefox/121.0 | 445
+2025-01-15T08:12:15Z | 10.0.1.78 | bwilson | POST | https://github.com/company/internal-repo/pull/42 | 200 | 15234 | 2341 | ALLOW | Developer Tools | Mozilla/5.0 (X11; Linux x86_64) Firefox/121.0 | 523
+2025-01-15T08:15:00Z | 10.0.1.42 | jsmith | GET | https://www.linkedin.com/feed | 200 | 312 | 67823 | ALLOW | Social Networking | Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120.0 | 234
+2025-01-15T08:20:33Z | 10.0.1.90 | mchen | GET | https://confluence.company.com/wiki/sprint-planning | 200 | 445 | 23456 | ALLOW | Intranet | Mozilla/5.0 (Windows NT 10.0; Win64; x64) Edge/120.0 | 123
+2025-01-15T08:25:12Z | 10.0.1.90 | mchen | GET | https://jira.company.com/browse/PROJ-1234 | 200 | 389 | 18923 | ALLOW | Intranet | Mozilla/5.0 (Windows NT 10.0; Win64; x64) Edge/120.0 | 178
+2025-01-15T08:30:00Z | 10.0.1.105 | dpark | GET | https://stackoverflow.com/questions/12345 | 200 | 234 | 45678 | ALLOW | Technology | Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120.0 | 267
+2025-01-15T08:32:45Z | 10.0.2.200 | unknown | GET | https://malware-c2.evil.xyz/beacon | 403 | 0 | 0 | BLOCK | Malware | python-requests/2.28.0 | 12
+2025-01-15T08:32:46Z | 10.0.2.200 | unknown | POST | https://malware-c2.evil.xyz/exfil | 403 | 0 | 0 | BLOCK | Malware | python-requests/2.28.0 | 8
+2025-01-15T08:32:47Z | 10.0.2.200 | unknown | GET | https://phishing-site.tk/login | 403 | 0 | 0 | BLOCK | Phishing | python-requests/2.28.0 | 9
+2025-01-15T08:32:48Z | 10.0.2.200 | unknown | GET | https://darkweb-market.top/products | 403 | 0 | 0 | BLOCK | Anonymizer | python-requests/2.28.0 | 7
+2025-01-15T08:32:49Z | 10.0.2.200 | unknown | POST | https://botnet-controller.ga/register | 403 | 0 | 0 | BLOCK | Command and Control | python-requests/2.28.0 | 11
+2025-01-15T08:33:01Z | 10.0.2.200 | unknown | GET | https://malware-c2.evil.xyz/config | 403 | 0 | 0 | BLOCK | Malware | python-requests/2.28.0 | 6
+2025-01-15T08:33:02Z | 10.0.2.200 | unknown | POST | https://malware-c2.evil.xyz/data | 403 | 0 | 0 | BLOCK | Malware | python-requests/2.28.0 | 8
+2025-01-15T08:33:03Z | 10.0.2.200 | unknown | GET | https://hack-tools.buzz/payload | 403 | 0 | 0 | BLOCK | Malware | python-requests/2.28.0 | 5
+2025-01-15T08:35:00Z | 10.0.1.42 | jsmith | GET | https://aws.amazon.com/console | 200 | 567 | 34123 | ALLOW | Cloud Services | Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120.0 | 345
+2025-01-15T08:40:22Z | 10.0.1.55 | ajones | GET | https://salesforce.com/dashboard | 200 | 478 | 56234 | ALLOW | Business Applications | Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/17.2 | 234
+2025-01-15T09:00:15Z | 10.0.1.42 | jsmith | GET | https://mail.google.com/inbox | 200 | 512 | 32145 | ALLOW | Webmail | Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120.0 | 198
+2025-01-15T09:15:33Z | 10.0.1.105 | dpark | POST | https://api.company.com/v2/data-export | 200 | 234 | 5234567 | ALLOW | Intranet | Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120.0 | 12456
+2025-01-15T09:16:01Z | 10.0.1.105 | dpark | POST | https://api.company.com/v2/data-export | 200 | 198 | 4823456 | ALLOW | Intranet | Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120.0 | 11234
+2025-01-15T09:16:45Z | 10.0.1.105 | dpark | POST | https://api.company.com/v2/data-export | 200 | 223 | 6123456 | ALLOW | Intranet | Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120.0 | 15678
+2025-01-15T09:17:22Z | 10.0.1.105 | dpark | POST | https://personal-cloud.storage.com/upload | 200 | 8234567 | 234 | ALLOW | Cloud Storage | Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120.0 | 23456
+2025-01-15T09:30:00Z | 10.0.1.55 | ajones | GET | https://zoom.us/meeting/123456 | 200 | 389 | 23456 | ALLOW | Collaboration | Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/17.2 | 189
+2025-01-15T09:45:12Z | 10.0.1.78 | bwilson | GET | https://npmjs.com/package/express | 200 | 234 | 12345 | ALLOW | Developer Tools | Mozilla/5.0 (X11; Linux x86_64) Firefox/121.0 | 156
+2025-01-15T10:00:00Z | 10.0.1.42 | jsmith | GET | https://news.ycombinator.com | 200 | 312 | 45678 | ALLOW | Technology | Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120.0 | 234
+2025-01-15T10:15:23Z | 10.0.1.90 | mchen | GET | https://figma.com/design/project-mockup | 200 | 567 | 89234 | ALLOW | Design Tools | Mozilla/5.0 (Windows NT 10.0; Win64; x64) Edge/120.0 | 345
+2025-01-15T10:30:45Z | 10.0.1.55 | ajones | POST | https://hubspot.com/crm/contacts/update | 200 | 2345 | 1234 | ALLOW | Business Applications | Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/17.2 | 189
+2025-01-15T11:00:00Z | 10.0.1.42 | jsmith | GET | https://mail.google.com/inbox | 200 | 512 | 29876 | ALLOW | Webmail | Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120.0 | 178
+2025-01-15T11:15:00Z | 10.0.1.78 | bwilson | GET | https://github.com/company/internal-repo/actions | 200 | 345 | 34567 | ALLOW | Developer Tools | Mozilla/5.0 (X11; Linux x86_64) Firefox/121.0 | 234
+2025-01-15T11:30:12Z | 10.0.1.105 | dpark | GET | https://dropbox.com/personal/documents | 200 | 234 | 67890 | ALLOW | Cloud Storage | Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120.0 | 345
+2025-01-15T12:00:00Z | 10.0.1.42 | jsmith | GET | https://doordash.com/en-US/store | 200 | 478 | 89234 | ALLOW | Shopping | Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120.0 | 234
+2025-01-15T12:05:30Z | 10.0.1.55 | ajones | GET | https://youtube.com/watch?v=abc123 | 200 | 312 | 234567 | ALLOW | Streaming Media | Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/17.2 | 1234
+2025-01-15T12:15:00Z | 10.0.1.90 | mchen | GET | https://reddit.com/r/programming | 200 | 234 | 56789 | ALLOW | Social Networking | Mozilla/5.0 (Windows NT 10.0; Win64; x64) Edge/120.0 | 189
+2025-01-15T12:30:00Z | 10.0.1.78 | bwilson | GET | https://medium.com/article/devops-best-practices | 200 | 345 | 34567 | ALLOW | Technology | Mozilla/5.0 (X11; Linux x86_64) Firefox/121.0 | 234
+2025-01-15T13:00:00Z | 10.0.1.42 | jsmith | GET | https://mail.google.com/inbox | 200 | 512 | 31234 | ALLOW | Webmail | Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120.0 | 167
+2025-01-15T13:30:00Z | 10.0.1.55 | ajones | GET | https://slack.com/company-workspace | 200 | 389 | 23456 | ALLOW | Collaboration | Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/17.2 | 156
+2025-01-15T14:00:00Z | 10.0.1.105 | dpark | GET | https://stackoverflow.com/questions/67890 | 200 | 234 | 45678 | ALLOW | Technology | Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120.0 | 234
+2025-01-15T14:15:23Z | 10.0.1.90 | mchen | POST | https://confluence.company.com/wiki/update-page | 200 | 12345 | 2345 | ALLOW | Intranet | Mozilla/5.0 (Windows NT 10.0; Win64; x64) Edge/120.0 | 345
+2025-01-15T14:30:00Z | 10.0.1.78 | bwilson | GET | https://docker.com/hub/images | 200 | 345 | 23456 | ALLOW | Developer Tools | Mozilla/5.0 (X11; Linux x86_64) Firefox/121.0 | 267
+2025-01-15T15:00:00Z | 10.0.1.42 | jsmith | GET | https://aws.amazon.com/s3/buckets | 200 | 567 | 45678 | ALLOW | Cloud Services | Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120.0 | 312
+2025-01-15T15:30:00Z | 10.0.1.55 | ajones | GET | https://google.com/search?q=competitor+analysis | 200 | 345 | 67890 | ALLOW | Web Search | Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/17.2 | 189
+2025-01-15T16:00:00Z | 10.0.1.90 | mchen | GET | https://figma.com/design/final-mockup | 200 | 567 | 123456 | ALLOW | Design Tools | Mozilla/5.0 (Windows NT 10.0; Win64; x64) Edge/120.0 | 456
+2025-01-15T16:30:00Z | 10.0.1.78 | bwilson | POST | https://github.com/company/internal-repo/pull/43 | 200 | 23456 | 3456 | ALLOW | Developer Tools | Mozilla/5.0 (X11; Linux x86_64) Firefox/121.0 | 567
+2025-01-15T17:00:00Z | 10.0.1.42 | jsmith | GET | https://mail.google.com/inbox | 200 | 512 | 28976 | ALLOW | Webmail | Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120.0 | 198
+2025-01-15T17:30:00Z | 10.0.1.105 | dpark | GET | https://linkedin.com/jobs | 200 | 345 | 56789 | ALLOW | Social Networking | Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120.0 | 234
+2025-01-15T18:00:00Z | 10.0.1.55 | ajones | GET | https://gmail.com/inbox | 200 | 478 | 34567 | ALLOW | Webmail | Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/17.2 | 189
+2025-01-15T02:15:00Z | 10.0.1.42 | jsmith | GET | https://company-vpn.internal.com/files | 200 | 234 | 123456 | ALLOW | Intranet | Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120.0 | 1567
+2025-01-15T02:16:30Z | 10.0.1.42 | jsmith | POST | https://mega.nz/upload | 200 | 4567890 | 234 | ALLOW | Cloud Storage | Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120.0 | 34567
+2025-01-15T02:18:00Z | 10.0.1.42 | jsmith | GET | https://company-vpn.internal.com/sensitive-data | 200 | 189 | 2345678 | ALLOW | Intranet | Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120.0 | 8923
+2025-01-15T02:20:15Z | 10.0.1.42 | jsmith | POST | https://mega.nz/upload | 200 | 3456789 | 198 | ALLOW | Cloud Storage | Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120.0 | 28934
+2025-01-15T19:00:00Z | 10.0.1.90 | mchen | GET | https://netflix.com/browse | 200 | 234 | 345678 | ALLOW | Streaming Media | Mozilla/5.0 (Windows NT 10.0; Win64; x64) Edge/120.0 | 567
+2025-01-15T19:30:00Z | 10.0.3.15 | guest_wifi | GET | https://speedtest.net/run | 200 | 312 | 234567 | ALLOW | Internet Services | Mozilla/5.0 (iPhone; CPU iPhone OS 17_2) Safari/604.1 | 2345
+2025-01-15T19:45:00Z | 10.0.3.15 | guest_wifi | GET | https://torrent-site.ml/download | 403 | 0 | 0 | BLOCK | P2P/Torrents | Mozilla/5.0 (iPhone; CPU iPhone OS 17_2) Safari/604.1 | 12
+2025-01-15T19:45:30Z | 10.0.3.15 | guest_wifi | GET | https://proxy-bypass.cf/connect | 403 | 0 | 0 | BLOCK | Anonymizer | Mozilla/5.0 (iPhone; CPU iPhone OS 17_2) Safari/604.1 | 8
+2025-01-15T20:00:00Z | 10.0.1.42 | jsmith | GET | https://google.com | 200 | 234 | 12345 | ALLOW | Web Search | Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120.0 | 123
+2025-01-15T20:30:00Z | 10.0.1.78 | bwilson | GET | https://github.com/trending | 200 | 345 | 45678 | ALLOW | Developer Tools | Mozilla/5.0 (X11; Linux x86_64) Firefox/121.0 | 234
+2025-01-15T21:00:00Z | 10.0.1.55 | ajones | GET | https://amazon.com/orders | 200 | 478 | 56789 | ALLOW | Shopping | Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/17.2 | 345
+2025-01-15T08:33:10Z | 10.0.2.200 | unknown | GET | https://legitimate-site.com/page | 404 | 0 | 0 | ALLOW | Uncategorized | python-requests/2.28.0 | 234
+2025-01-15T08:33:15Z | 10.0.2.200 | unknown | GET | https://another-site.com/admin | 403 | 0 | 0 | ALLOW | Uncategorized | python-requests/2.28.0 | 189
+2025-01-15T08:33:20Z | 10.0.2.200 | unknown | GET | https://company.com/wp-admin | 404 | 0 | 0 | ALLOW | Uncategorized | python-requests/2.28.0 | 156
+2025-01-15T08:33:25Z | 10.0.2.200 | unknown | GET | https://company.com/.env | 404 | 0 | 0 | ALLOW | Uncategorized | python-requests/2.28.0 | 134
+2025-01-15T08:33:30Z | 10.0.2.200 | unknown | GET | https://company.com/phpinfo.php | 404 | 0 | 0 | ALLOW | Uncategorized | python-requests/2.28.0 | 145
+2025-01-15T08:33:35Z | 10.0.2.200 | unknown | POST | https://company.com/login | 401 | 234 | 123 | ALLOW | Uncategorized | python-requests/2.28.0 | 567
+2025-01-15T08:33:36Z | 10.0.2.200 | unknown | POST | https://company.com/login | 401 | 234 | 123 | ALLOW | Uncategorized | python-requests/2.28.0 | 543
+2025-01-15T08:33:37Z | 10.0.2.200 | unknown | POST | https://company.com/login | 401 | 234 | 123 | ALLOW | Uncategorized | python-requests/2.28.0 | 521
+2025-01-15T08:33:38Z | 10.0.2.200 | unknown | POST | https://company.com/login | 401 | 234 | 123 | ALLOW | Uncategorized | python-requests/2.28.0 | 498
+2025-01-15T08:33:39Z | 10.0.2.200 | unknown | POST | https://company.com/login | 401 | 234 | 123 | ALLOW | Uncategorized | python-requests/2.28.0 | 512

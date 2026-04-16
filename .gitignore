@@ -1,0 +1,57 @@
+# =============================================================================
+# CyberScope — .gitignore
+# =============================================================================
+
+# ---- Environment & Secrets --------------------------------------------------
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+
+# ---- Python -----------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+env/
+*.egg-info/
+dist/
+build/
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+htmlcov/
+.coverage
+
+# ---- Backend runtime data ---------------------------------------------------
+backend/uploads/*
+!backend/uploads/.gitkeep
+backend/loganalyzer.db
+backend/*.db
+
+# ---- Node / Frontend --------------------------------------------------------
+node_modules/
+frontend/node_modules/
+.next/
+frontend/.next/
+out/
+frontend/out/
+
+# ---- Docker -----------------------------------------------------------------
+.docker/
+
+# ---- IDE --------------------------------------------------------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ---- OS ---------------------------------------------------------------------
+.DS_Store
+Thumbs.db
+desktop.ini
+
