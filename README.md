@@ -89,7 +89,7 @@ The fastest path. Requires Docker Desktop.
 **1. Clone and configure**
 
 ```bash
-git clone https://github.com/your-username/cybersec-log-analyzer.git
+git clone https://github.com/liamthuynh/cybersec-log-analyzer.git
 cd cybersec-log-analyzer
 cp .env.example .env
 ```
