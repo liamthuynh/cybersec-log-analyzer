@@ -89,11 +89,27 @@ Both setup paths require the same two environment variables:
 
 | Variable | Required | Description |
 |---|---|---|
-| `SECRET_KEY` | Yes | Signs JWT tokens. Generate one: `python3 -c "import secrets; print(secrets.token_hex(32))"` |
+| `SECRET_KEY` | Yes | A random secret used to sign JWT tokens. See below. |
 | `ANTHROPIC_API_KEY` | No | Enables AI analysis. Get one at [console.anthropic.com](https://console.anthropic.com) |
 
 **Docker** reads these from a `.env` file in the project root.  
 **Local** reads them from shell exports (see [Quick Start — Local](#quick-start--local-tested-on-macos)).
+
+### Generating a SECRET_KEY
+
+`SECRET_KEY` can be any random 32-character hex string. Generate it **once**, copy the value, and keep it fixed — changing it invalidates all existing login tokens.
+
+**Option A — generate locally (Python):**
+```bash
+python3 -c "import secrets; print(secrets.token_hex(32))"
+```
+
+**Option B — generate locally (OpenSSL):**
+```bash
+openssl rand -hex 32
+```
+
+You can also use any online random hex generator if you prefer.
 
 ---
 
@@ -150,14 +166,18 @@ createdb cyberscope
 
 **2. Configure the backend**
 
+Generate a `SECRET_KEY` using one of the methods in the [Configuration](#configuration) section, then export it along with the other required variables:
+
 ```bash
-export SECRET_KEY="$(python3 -c 'import secrets; print(secrets.token_hex(32))')"
+export SECRET_KEY="your-generated-key-here"
 export FLASK_ENV=development
 export DATABASE_URL=postgresql://localhost/cyberscope
 export CORS_ORIGINS=http://localhost:3000
 # Optional:
 export ANTHROPIC_API_KEY=sk-ant-...
 ```
+
+> These exports last only for the current terminal session. Re-export the **same** `SECRET_KEY` value if you restart your shell, then log in again.
 
 **3. Start the backend**
 
