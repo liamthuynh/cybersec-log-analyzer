@@ -30,7 +30,6 @@ from collections import Counter, defaultdict
 from datetime import datetime, timedelta
 from typing import List, Dict, Any
 import statistics
-import math
 
 
 def analyze_logs(entries: List[Dict]) -> Dict[str, Any]:
@@ -118,9 +117,12 @@ def _rule_off_hours(entries: List[Dict]) -> List[Dict]:
             ts = datetime.fromisoformat(e["timestamp"].replace("Z", "+00:00"))
             hour = ts.hour
             if hour < 6 or hour >= 22:
-                confidence = 0.4 if (hour >= 5 or hour <= 22) else 0.7
-                if hour >= 0 and hour < 4:
+                if hour < 4:
                     confidence = 0.8
+                elif hour < 6:
+                    confidence = 0.7
+                else:
+                    confidence = 0.4  # 22–23: late evening, lower suspicion
                 anomalies.append({
                     "line_number": e["line_number"],
                     "entry": e,

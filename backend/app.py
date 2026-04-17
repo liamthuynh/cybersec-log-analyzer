@@ -191,6 +191,8 @@ def register():
         return jsonify({"error": "Username and password are required"}), 400
     if len(password) < 6:
         return jsonify({"error": "Password must be at least 6 characters"}), 400
+    if len(password) > 128:
+        return jsonify({"error": "Password must be at most 128 characters"}), 400
 
     db = get_db()
     existing = db.execute("SELECT id FROM users WHERE username = %s", (username,)).fetchone()
@@ -393,4 +395,10 @@ def health():
 # ---------------------------------------------------------------------------
 # Startup
 # ---------------------------------------------------------------------------
-init_db()
+try:
+    init_db()
+except Exception as e:
+    print(f"⚠️  Database initialization failed: {e}")
+
+if __name__ == "__main__":
+    app.run(host=ActiveConfig.HOST, port=ActiveConfig.PORT, debug=ActiveConfig.DEBUG)

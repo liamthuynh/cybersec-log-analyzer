@@ -51,7 +51,7 @@ class Config:
     # CORS
     # ------------------------------------------------------------------ #
     # In production, restrict to your frontend origin, e.g. "https://yourapp.com"
-    CORS_ORIGINS: str = os.environ.get("CORS_ORIGINS", "*")
+    CORS_ORIGINS: str = os.environ.get("CORS_ORIGINS", "http://localhost:3000")
 
 
 class DevelopmentConfig(Config):

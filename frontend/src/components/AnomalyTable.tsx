@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, Fragment } from 'react';
 import { Anomaly } from '@/lib/api';
 
 interface Props {
@@ -83,9 +83,8 @@ export default function AnomalyTable({ anomalies }: Props) {
           </thead>
           <tbody>
             {filtered.map((anomaly, idx) => (
-              <>
+              <Fragment key={idx}>
                 <tr
-                  key={idx}
                   onClick={() => setExpandedRow(expandedRow === idx ? null : idx)}
                   className="border-b border-cyber-border/50 hover:bg-cyber-bg/50 cursor-pointer transition-colors"
                 >
@@ -121,7 +120,7 @@ export default function AnomalyTable({ anomalies }: Props) {
                   </td>
                 </tr>
                 {expandedRow === idx && (
-                  <tr key={`${idx}-detail`} className="bg-cyber-bg/30">
+                  <tr className="bg-cyber-bg/30">
                     <td colSpan={6} className="px-5 py-4">
                       <div className="space-y-3">
                         {/* Reason */}
@@ -185,7 +184,7 @@ export default function AnomalyTable({ anomalies }: Props) {
                     </td>
                   </tr>
                 )}
-              </>
+              </Fragment>
             ))}
           </tbody>
         </table>
