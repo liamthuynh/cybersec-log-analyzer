@@ -393,8 +393,4 @@ def health():
 # ---------------------------------------------------------------------------
 # Startup
 # ---------------------------------------------------------------------------
-if __name__ == "__main__":
-    os.makedirs(app.config["UPLOAD_FOLDER"], exist_ok=True)
-    init_db()
-    print(f"🚀 Log Analyzer API running on http://{ActiveConfig.HOST}:{ActiveConfig.PORT}")
-    app.run(debug=ActiveConfig.DEBUG, host=ActiveConfig.HOST, port=ActiveConfig.PORT)
+init_db()
