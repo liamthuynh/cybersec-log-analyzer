@@ -36,7 +36,7 @@ class Config:
     # AI / Anthropic
     # ------------------------------------------------------------------ #
     ANTHROPIC_API_KEY: str = os.environ.get("ANTHROPIC_API_KEY", "")
-    AI_MODEL: str = os.environ.get("AI_MODEL", "claude-sonnet-4-6")
+    AI_MODEL: str = os.environ.get("AI_MODEL", "claude-3-5-sonnet-20241022")
     AI_MAX_TOKENS: int = int(os.environ.get("AI_MAX_TOKENS", "2000"))
     AI_MAX_SAMPLE_ENTRIES: int = int(os.environ.get("AI_MAX_SAMPLE_ENTRIES", "50"))
 
