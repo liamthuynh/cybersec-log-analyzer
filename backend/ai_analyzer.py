@@ -76,7 +76,7 @@ def ai_analyze_logs(
         client = anthropic.Anthropic(api_key=api_key)
         response = client.messages.create(
             model=MODEL,
-            max_tokens=2000,
+            max_tokens=4096,
             system=(
                 "You are an expert SOC (Security Operations Center) analyst. "
                 "Analyze the provided web proxy log data and anomaly detection results. "

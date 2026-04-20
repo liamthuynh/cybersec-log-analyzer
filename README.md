@@ -253,7 +253,7 @@ Implemented in [`backend/ai_analyzer.py`](backend/ai_analyzer.py).
 When `ANTHROPIC_API_KEY` is set and the AI toggle is on, the backend:
 
 1. Builds a context packet — summary statistics, top anomalies, and a representative sample of up to 50 log entries (anomalous entries prioritized, remaining slots filled evenly across the file)
-2. Sends the packet to **Claude** (`claude-sonnet-4-6`) via the Anthropic API
+2. Sends the packet to **Claude** (`claude-haiku-4-5-20251001`) via the Anthropic API
 3. Returns structured JSON with the fields below
 
 | Field | Description |
