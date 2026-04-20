@@ -33,15 +33,9 @@ The AI layer adds value by:
 
 import json
 from typing import List, Dict, Any, Optional
-
-# We use the requests library to call the API directly
-# (avoids requiring the anthropic SDK for simplicity)
-import requests
-
+import anthropic
 from config import ActiveConfig
 
-ANTHROPIC_API_KEY = ActiveConfig.ANTHROPIC_API_KEY
-ANTHROPIC_API_URL = "https://api.anthropic.com/v1/messages"
 MODEL = ActiveConfig.AI_MODEL
 
 
@@ -61,7 +55,8 @@ def ai_analyze_logs(
     Returns:
         Dict with AI-generated analysis, or None if API is unavailable
     """
-    if not ANTHROPIC_API_KEY:
+    api_key = ActiveConfig.ANTHROPIC_API_KEY
+    if not api_key:
         return {
             "available": False,
             "error": "ANTHROPIC_API_KEY not set",
@@ -78,39 +73,20 @@ def ai_analyze_logs(
     prompt = _build_analysis_prompt(sample, anomalies, stats)
 
     try:
-        response = requests.post(
-            ANTHROPIC_API_URL,
-            headers={
-                "Content-Type": "application/json",
-                "x-api-key": ANTHROPIC_API_KEY,
-                "anthropic-version": "2023-06-01",
-            },
-            json={
-                "model": MODEL,
-                "max_tokens": 2000,
-                "messages": [{"role": "user", "content": prompt}],
-                "system": (
-                    "You are an expert SOC (Security Operations Center) analyst. "
-                    "Analyze the provided web proxy log data and anomaly detection results. "
-                    "Respond ONLY with a valid JSON object (no markdown, no code fences). "
-                    "Be concise, actionable, and prioritize the most critical findings."
-                ),
-            },
-            timeout=30,
+        client = anthropic.Anthropic(api_key=api_key)
+        response = client.messages.create(
+            model=MODEL,
+            max_tokens=2000,
+            system=(
+                "You are an expert SOC (Security Operations Center) analyst. "
+                "Analyze the provided web proxy log data and anomaly detection results. "
+                "Respond ONLY with a valid JSON object (no markdown, no code fences). "
+                "Be concise, actionable, and prioritize the most critical findings."
+            ),
+            messages=[{"role": "user", "content": prompt}],
         )
-        response.raise_for_status()
-        data = response.json()
 
-        # Extract the text content from Claude's response
-        content = data.get("content", [])
-        text = ""
-        for block in content:
-            if block.get("type") == "text":
-                text += block.get("text", "")
-
-        # Parse the JSON response
-        # Strip any potential markdown code fences
-        text = text.strip()
+        text = response.content[0].text.strip()
         if text.startswith("```"):
             text = text.split("\n", 1)[1] if "\n" in text else text[3:]
         if text.endswith("```"):
@@ -121,17 +97,16 @@ def ai_analyze_logs(
         ai_result["available"] = True
         return ai_result
 
-    except requests.exceptions.RequestException as e:
+    except anthropic.APIError as e:
         return {
             "available": False,
-            "error": f"API request failed: {str(e)}",
+            "error": f"Anthropic API error: {str(e)}",
             "fallback_summary": _generate_fallback_summary(entries, rule_results),
         }
-    except (json.JSONDecodeError, KeyError) as e:
+    except (json.JSONDecodeError, KeyError, IndexError) as e:
         return {
             "available": False,
             "error": f"Failed to parse AI response: {str(e)}",
-            "raw_response": text[:500] if 'text' in dir() else "No response",
             "fallback_summary": _generate_fallback_summary(entries, rule_results),
         }
 
