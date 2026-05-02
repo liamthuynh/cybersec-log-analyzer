@@ -15,6 +15,14 @@ CyberScope lets security analysts upload proxy or web server logs, automatically
 
 ---
 
+## Why I Built This
+
+Most log analysis tools fall into two camps: enterprise platforms that take a week to set up, or `grep` and a spreadsheet. I wanted something in the middle — a tool an analyst could open in a browser, drop a log file into, and get a meaningful answer in seconds.
+
+CyberScope is my take on that. It combines deterministic rule-based detection (fast, free, predictable) with an optional Claude-powered analysis layer that explains *why* a series of events matters in plain language. The hybrid approach means the tool is fully useful without an AI key, and noticeably more useful with one.
+
+---
+
 ## Overview
 
 | | |
@@ -30,6 +38,7 @@ CyberScope lets security analysts upload proxy or web server logs, automatically
 
 ## Contents
 
+- [Why I Built This](#why-i-built-this)
 - [Features](#features)
 - [Architecture](#architecture)
 - [Configuration](#configuration)
@@ -40,6 +49,7 @@ CyberScope lets security analysts upload proxy or web server logs, automatically
 - [AI Analysis](#ai-analysis)
 - [API Reference](#api-reference)
 - [Project Structure](#project-structure)
+- [Roadmap](#roadmap)
 
 ---
 
@@ -329,6 +339,28 @@ cybersec-log-analyzer/
 
 ---
 
+## Roadmap
+
+Things I want to add as I keep working on this:
+
+- **Real-time log streaming** — tail a live log feed instead of uploading static files; surface anomalies as they happen
+- **Alerting** — Slack and email notifications when a critical anomaly is detected
+- **Custom rules** — let users define their own detection rules through the UI
+- **Multi-tenant workspaces** — share uploads and findings across a team
+- **More log formats** — Cloudflare, AWS WAF, Suricata, Sysmon
+- **Test coverage** — currently a smoke test only; the parser and analyzer rules deserve proper unit tests
+- **Self-hosted Docker image** — a single `docker run` to spin up the full stack for homelab use
+
+---
+
 ## License
 
 MIT
+
+---
+
+## Author
+
+Built by **Liam Huynh** — [GitHub](https://github.com/liamthuynh)
+
+If you find a bug, have a feature idea, or just want to chat about log analysis, open an issue or send a PR.

@@ -2,6 +2,9 @@
   "name": "cybersec-log-analyzer-frontend",
   "version": "0.1.0",
   "private": true,
+  "description": "CyberScope frontend — Next.js dashboard for SOC log analysis",
+  "author": "Liam Huynh",
+  "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
