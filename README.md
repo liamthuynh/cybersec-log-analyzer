@@ -10,9 +10,6 @@ CyberScope lets security analysts upload proxy or web server logs, automatically
 ![Docker](https://img.shields.io/badge/Docker-Compose-2496ED?logo=docker&logoColor=white)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
-### [→ Live Demo](https://cybersec-log-analyzer-three.vercel.app)
-> Demo credentials: `demo` / `demo1234`
-
 ---
 
 ## Why I Built This
